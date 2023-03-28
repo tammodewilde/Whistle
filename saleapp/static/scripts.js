@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
   //call to action button scroll
   document.getElementById('calltoactionbutton').addEventListener('click', function() {
     window.scrollBy({
-      top: window.innerHeight,
+      top: 2*window.innerHeight,
       left: 0,
       behavior: 'smooth'
     });
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
   //pagina direct naar beneden laten scrollen bij laden van nieuwe pagina
   const page = getQueryParam('page');
   if (page !== null) {
-    smoothScrollDown(800);
+    smoothScrollDown(1600);
   }
 
   //faq animations

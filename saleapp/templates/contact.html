@@ -3,5 +3,53 @@
 
 
 {% block body %}
+<main>
 
+    <!-- Banner Section starts here -->
+
+    <section class="section-banner inner-page-banner">
+        <div class="banner-img" style="background: url('images/inner-page-banner.jpg');background-size: cover;background-position: center;"></div>
+        <div class="container position-relative">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h1>Contact</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section contact-content-section">
+        <div class="container">
+            <div class="contact-form-wrapper">
+                <form>
+                    <div class="row mb-5">
+                        <div class="col-12 col-lg-6 mb-3">
+                            <label for="fName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="fName">
+                        </div>
+                        <div class="col-12 col-lg-6 mb-3">
+                            <label for="lName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lName">
+                        </div>
+                        <div class="col-12 col-lg-6 mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="col-12 col-lg-6 mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="number" class="form-control" id="phone">
+                        </div>
+                        <div class="col-12mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Main body ends here -->
 {% endblock %}

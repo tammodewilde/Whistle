@@ -16,9 +16,12 @@ import sys
 import dj_database_url
 from dotenv import load_dotenv
 from django.core.management.utils import get_random_secret_key
+from saleapp.scraper import scraping_targets
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 load_dotenv()
@@ -148,10 +151,18 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 CELERY_BEAT_SCHEDULE = {
     'getmail': {
-        'task': 'saleapp.emails.getmail',
+        'task': 'saleapp.tasks.getmail',
         'schedule': 20.0, # Run the task every 60 seconds
-    }
+    },
+
 }
+# Add a Celery Beat schedule for each scraping target
+for index, target in enumerate(scraping_targets):
+    CELERY_BEAT_SCHEDULE[f'scrape_task_{index}'] = {
+        'task': 'saleapp.tasks.scrape_task',
+        'schedule': 60 * 60,  # Run the task every 1 hour
+        'args': (target['url'], target['tag'], target['attribute'], target['value']),
+    }
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

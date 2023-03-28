@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Subscriber, Brand, Category
 from django.contrib import messages
-from .emails import getmail
+from .tasks import getmail
 from django.core.paginator import Paginator
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -46,7 +46,7 @@ def index(request):
                 return render(request, 'sales1.html', variabelen)
             else:
                 # handle existing subscriber
-                messages.error(request, 'There was an error with your subscription. Please try again.')
+                messages.error(request, 'Email adress is allready subscribed!')
                 return render(request, 'sales1.html', variabelen)
         else:
             print("error")

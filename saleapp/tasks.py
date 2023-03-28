@@ -4,7 +4,10 @@ import email
 import yaml 
 import openai
 from celery import shared_task
+from .scraper import scrape_website
 
+
+#potentiele errors omdat ik emails.py naar tasks.py heb veranderd
 
 @shared_task
 def getmail():
@@ -64,6 +67,19 @@ def getmail():
                         print(part.get_payload())
                         return part.get_payload()
     return 0
+
+
+#webscraper
+@shared_task
+def scrape_task(url, tag, attribute, value):
+    elements = scrape_website(url, tag, attribute, value)
+    # Process the extracted elements (e.g., save them to a database)
+    return len(elements)
+
+
+
+
+
 
 
 def get_gpt3_response(prompt):

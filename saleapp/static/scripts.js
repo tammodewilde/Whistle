@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function() {
 //     var categoryDiv = document.getElementById("category-div");
 //     var logoDiv = document.getElementById("logo")
 //     categoryNav.classList.toggle("hide");
-//     if (categoryNav.classList.contains("hide")) {
+//     if (categoryNav.classList.contains("hide")) 
 //       categoryDiv.style.width = "50px";
 //       categoryNav.style.translateX = "-200px";
 //       // logoDiv.style.paddingLeft = "0px" 

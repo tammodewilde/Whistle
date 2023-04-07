@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Web App</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css" />
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <link rel="stylesheet" href="../static/stylesv2.css">
+
+</head>
+<body>
+    <header class="main-header"> 
+      <!-- 2 keer header nu even kijken of dat een probleem is -->
+      <div class="logo-container">
+        <img src="../static/designs/whistleiconv2.png" alt="Your Web App Logo" class="logo">
+    </div>
+    <nav class="main-nav">
+        <a href="#get-started" class="nav-link">Get Started</a>
+        <span class="nav-separator">|</span>
+        <a href="#how-it-works" class="nav-link">How Does It Work</a>
+        <span class="nav-separator">|</span>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+    <div class="hero">
+      <div class="hero-content">
+        <h1 class="headline">
+            Are you annoyed by the number of newsletters overcrowding your inbox? <br>
+            We are too.
+        </h1>
+        <h2 class="subheadline">
+          From now on:    <span class="highlight">Only </span> <span class="highlight">Relevant </span> <span class="highlight">Newsletters. </span>
+        </h2>
+        <!-- <p class="description">
+            Want to know when your favorite brands or webstore are on sale and nothing else? No problem. <br>
+            Want to know when your favorite designer releases new products? We can do that too.  <br>
+            <br>
+            From now on, you can receive just the newsletters you are interested in. Never be annoyed again.
+        </p> -->
+        <button class="cta-button" id="scrollToBrands">Let's get started!</button>
+      </div>    
+        <div class="video-container">
+            <!-- <video src="your-video.mp4" autoplay muted loop></video> -->
+        </div>
+      </div>
+
+
+    <main>
+      <!-- <div class="overgang"></div> deze div is voor de golvende overgang  -->
+
+        <section class="featured-brands" id="brandsSection">
+            <h2 class="featured-brands-header">Select your favourite brands</h2>
+            <!-- Search a brand -->
+            <div class="search-container">
+              <input type="text" class="search-input" placeholder="Search for your favourite brand...." onfocus="this.placeholder = ''" onblur="if (this.value == '') { this.placeholder = 'Search for your favourite brand....'; }">
+            </div>
+
+            <!-- Brand logos -->
+            <div class="brand-logos">
+              <!-- Add 'data-brand' attribute for each logo with the brand name -->
+              <!-- This attribute will be used in JavaScript for selecting brands -->
+              <!-- {% for brand in allbrands %}
+              <div class="grid-item">
+                <img class="grid-image" src="{{ brand.logo.url }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}">
+                <div class="brand-overlay"></div>
+              </div>
+              {% endfor %} -->
+              <!-- {% for brand in allbrands %}
+              <div class="brand-container">
+                <img class="brand-logo" src="{{ brand.logo.url }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}">
+                <div class="brand-overlay"></div>
+              </div>
+              {% endfor %} -->
+              
+              <div class="brand-container">
+                <img src="../media/brand_logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
+                <div class="brand-overlay"></div>
+              </div>
+              <div class="brand-container">
+                <img src="../media/brand_logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
+                <div class="brand-overlay"></div>
+              </div>
+
+
+              
+              <!-- Repeat for all other brands -->
+            </div>
+            <button class="submit-button">Subscribe!</button>
+          </section>
+
+        <section class="how-it-works" id="how-it-works-section">
+            <h2 class="how-it-works-header">How It Works</h2>
+            <div class="step">
+                <div class="step-icon"><img src="../static/designs/pict1.png" alt="step 1" class="step-icon" data-brand="step1"></div>
+                <h3 class="step-title">Choose Your Brands</h3>
+                <p class="step-description">Select your favorite brands to personalize your experience.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><img src="../static/designs/pict2.png" alt="step 1" class="step-icon" data-brand="step2"></div>
+                <h3 class="step-title">Subscribe for Alerts</h3>
+                <p class="step-description">Receive discount codes and sale alerts directly in your inbox.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon"><img src="../static/designs/pict3.png" alt="step 1" class="step-icon" data-brand="step3"></div>
+                <h3 class="step-title">Shop & Save</h3>
+                <p class="step-description">Enjoy exclusive discounts and never miss a sale from your favorite brands.</p>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-header">Trusted by Thousands</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <img src="../static/designs/happycustomer.png" alt="User 1" class="user-photo">
+                    <blockquote class="user-quote">"This app has saved me so much money on my favorite brands!"</blockquote>
+                    <cite class="user-name">User 1</cite>
+                    <div class="rating"></div>
+                </div>
+                <div class="testimonial">
+                    <img src="../static/designs/happycustomer.png" alt="User 2" class="user-photo">
+                    <blockquote class="user-quote">"This app has saved me so much money on my favorite brands!"</blockquote>
+                    <cite class="user-name">User 2</cite>
+                    <div class="rating"></div>
+                </div>
+                <div class="testimonial">
+                    <img src="../static/designs/happycustomer.png" alt="User 2" class="user-photo">
+                    <blockquote class="user-quote">"This app has saved me so much money on my favorite brands!"</blockquote>
+                    <cite class="user-name">User 3</cite>
+                    <div class="rating"></div>
+                </div>
+                <!-- <div class="slider-controls">
+                  <button class="slider-control-buttons left">&lt;</button>
+                  <button class="slider-control-buttons right">&gt;</button>
+              </div> -->
+            </div>
+            
+
+                <!-- Add more testimonials -->
+
+            </section>
+
+<!-- Call-to-Action Section -->
+<section class="cta-section">
+    <h2 class="headline">Start taking control of your inbox</h2>
+    <p class="subheadline">Try it now and only receive the content you want!</p>
+    <button class="cta-button">Try it now</button>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-logo">
+        <img src="..\static\designs\whistleiconv2.png" alt="Your Web App Logo" class="footer-logo-img">
+    </div>
+    <div class="footer-links">
+        <a href="#" class="footer-link">About Us</a>
+        |
+        <a href="#" class="footer-link">Contact Us</a>
+        |
+        <a href="#" class="footer-link">Privacy Policy  </a>
+    </div>
+    <div class="footer-social">
+        <a href="#" class="social-icon"><img src="../static/designs/facebook.png" alt="Facebook"></a>
+        <a href="#" class="social-icon"><img src="../static/designs/twitter.png" alt="Twitter"></a>
+        <a href="#" class="social-icon"><img src="../static/designs/instagram.png" alt="Instagram"></a>
+    </div>
+</footer>
+<!-- Add the following scripts at the end of the body tag -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="../static/temp.js"></script>
+</body>
+</html>

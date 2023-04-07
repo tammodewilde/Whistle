@@ -2,9 +2,11 @@
 import imaplib
 import email
 import yaml 
+import requests
 import openai
 from celery import shared_task
 from .scraper import scrape_website
+from bs4 import BeautifulSoup
 
 
 #potentiele errors omdat ik emails.py naar tasks.py heb veranderd
@@ -70,25 +72,21 @@ def getmail():
 
 
 #webscraper
+# @shared_task
+# def scrape_task(url, tag, attribute, value):
+#     elements = scrape_website(url, tag, attribute, value)
+#     # Process the extracted elements (e.g., save them to a database)
+#     print(elements)
+#     return len(elements)
 @shared_task
 def scrape_task(url, tag, attribute, value):
-    elements = scrape_website(url, tag, attribute, value)
-    # Process the extracted elements (e.g., save them to a database)
+    response = requests.get(url)
+    print(response.content)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    elements = soup.find_all(tag, {attribute: value})
+    for element in elements:
+        print(element)
     return len(elements)
 
 
 
-
-
-
-
-def get_gpt3_response(prompt):
-
-    response = openai.Completion.create(
-    engine="text-davinci-003",
-    prompt=prompt,
-    max_tokens=500,
-    n = 1,
-    temperature=0.8,
-    )
-    return response["choices"][0]["text"]

@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //smooth scrollen
   var scroll = new SmoothScroll('a[href*="#"]', {
-  speed: 500,
+  speed: 500, 
   speedAsDuration: true
   });
 

@@ -27,7 +27,9 @@ def index(request):
     if request.method == "GET":                      
 
         
-        return render(request, 'sales1.html', variabelen)
+        # return render(request, 'sales1.html', variabelen)
+        return render(request, 'temp.html', variabelen)
+
 
 
     if request.method == 'POST':

@@ -24,9 +24,13 @@ html {
     transition: all 0.3s ease;
 }
 
+
+/*  */
+/*  */
 /* header */
 /* Main header styles */
-
+/*  */
+/*  */
 main {
     display: flex;
     flex-direction: column;
@@ -94,8 +98,18 @@ main {
     color: #303030;
     margin-left: 15px;
 }
+/*  */
+/*  */
+/*  */
+/*  */
 
+
+
+/*  */
+/*  */
 /* Hero Section */
+/*  */
+/*  */
 .hero {
     background-image: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)), url('../static/designs/layer1.svg');
     top: -140px;
@@ -157,7 +171,7 @@ main {
     z-index: 1;
     padding: 20px 35px;
 }
-/* Buttons */
+
 .cta-button {
     font-size: 1.2rem;
     font-weight: 600;
@@ -177,8 +191,18 @@ main {
     background-color: #ff7f00;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
+/*  */
+/*  */
+/*  */
+/*  */
 
+
+
+/*  */
+/*  */
 /* Featured Brands Section */
+/*  */
+/*  */
 .search-container {
     display: flex;
     align-items: center;
@@ -308,9 +332,64 @@ main {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
   }
-  
 
+    /* General container styles */
+  .email-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f8f8f8; /* Light grey */
+    border-radius: 10px;
+  }
+
+  /* Form styles */
+  .email-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  /* Email input styles */
+  .email-input {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #333333; /* Dark grey */
+    background-color: #ffffff; /* White */
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    max-width: 500px;
+    margin-left: 150px;
+  }
+
+  .email-input:focus {
+    border-color: #4f4f4f; /* Dark grey */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .email-input::placeholder {
+    color: #999999; /* Placeholder text color */
+  }
+
+
+
+/*  */
+/*  */
+/*  */
+/*  */
+
+
+/*  */
+/*  */
 /* How it Works Section */
+/*  */
+/*  */
+
 .how-it-works {
     background-image: url('../static/designs/layer3.svg');
     background-size: cover;
@@ -320,6 +399,7 @@ main {
     text-align: center;
     width: 100%;
     min-height: 65vh;
+    margin-bottom: 150px;
 }
 .how-it-works-header {
     font-size: 2rem;
@@ -330,14 +410,15 @@ main {
   }
 
 .step {
-    display: inline-flex;
-    width: 30%;
-    vertical-align: top;
-    margin: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    flex-direction: column;
-    align-items: center;
+  display: inline-flex;
+  width: 30%;
+  vertical-align: top;
+  margin: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -357,9 +438,20 @@ main {
 }
 
 .step.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+.step-icon img {
+  transition: transform 0.5s ease;
+}
+
+.step-icon img.highlight {
+  transform: scale(1.2);
+  transition: transform 0.5s ease;
+}
+
 
 /* Testimonials Section */
 .testimonials {

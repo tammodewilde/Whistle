@@ -49,8 +49,44 @@
 
 
     <main>
-      <!-- <div class="overgang"></div> deze div is voor de golvende overgang  -->
 
+
+<!--  -->
+<!--  -->
+<!-- How it works section -->
+<!--  -->
+<!--  -->
+<section class="how-it-works" id="how-it-works-section">
+  <h2 class="how-it-works-header">How It Works</h2>
+  <div class="step">
+      <div class="step-icon"><img src="../static/designs/pict1.png" alt="step 1" class="step-icon" data-brand="step1"></div>
+      <h3 class="step-title">Choose Your Brands</h3>
+      <p class="step-description">Select your favorite brands to personalize your experience.</p>
+  </div>
+  <div class="step">
+      <div class="step-icon"><img src="../static/designs/pict2.png" alt="step 1" class="step-icon" data-brand="step2"></div>
+      <h3 class="step-title">Subscribe for Alerts</h3>
+      <p class="step-description">Receive discount codes and sale alerts directly in your inbox.</p>
+  </div>
+  <div class="step">
+      <div class="step-icon"><img src="../static/designs/pict3.png" alt="step 1" class="step-icon" data-brand="step3"></div>
+      <h3 class="step-title">Shop & Save</h3>
+      <p class="step-description">Enjoy exclusive discounts and never miss a sale from your favorite brands.</p>
+  </div>
+</section>
+<!--  -->
+<!--  -->
+<!-- Einde How it works -->
+<!--  -->
+<!--  -->
+
+
+
+<!--  -->
+<!--  -->
+<!-- featured brands section -->
+<!--  -->
+<!--  -->
         <section class="featured-brands" id="brandsSection">
             <h2 class="featured-brands-header">Select your favourite brands</h2>
             <!-- Search a brand -->
@@ -62,126 +98,45 @@
             <div class="brand-logos">
               <!-- Add 'data-brand' attribute for each logo with the brand name -->
               <!-- This attribute will be used in JavaScript for selecting brands -->
-              <!-- {% for brand in allbrands %}
-              <div class="grid-item">
-                <img class="grid-image" src="{{ brand.logo.url }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}">
-                <div class="brand-overlay"></div>
-              </div>
-              {% endfor %} -->
-              <!-- {% for brand in allbrands %}
+              {% for brand in allbrands %}
               <div class="brand-container">
                 <img class="brand-logo" src="{{ brand.logo.url }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}">
                 <div class="brand-overlay"></div>
               </div>
-              {% endfor %} -->
-              
-              <div class="brand-container">
-                <img src="../static/Logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/fila.svg" alt="FILE" class="brand-logo" data-brand="fila">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/adidas.svg" alt="adidas" class="brand-logo" data-brand="adidas">
-                <div class="brand-overlay"></div>
-              </div>
-              <div class="brand-container">
-                <img src="../static/Logos/carhartt.svg" alt="Carhartt" class="brand-logo" data-brand="carhartt">
-                <div class="brand-overlay"></div>
-              </div>
+              {% endfor %} 
 
-
-              
-              <!-- Repeat for all other brands -->
             </div>
-            <button class="submit-button">Subscribe!</button>
+            <!-- subscribe gedeelte -->
+            <div class="email-container">
+              <form class="email-form" method="POST">
+                {% csrf_token %}
+
+                <!-- user email -->
+                <input type="email" class="email-input" name="email" required placeholder="Email Adress" onfocus="this.placeholder = ''" onblur="if (this.value == '') { this.placeholder = 'Email Address'; }">
+
+                <!-- hidden field met de brands -->
+                <input type="hidden" id="selected-brands-hidden" name="selected-brands-hidden" value="">
+
+                <button type="submit" class="submit-button">Subscribe!</button>
+              </form>
+            </div>
           </section>
+<!--  -->
+<!--  -->
+<!-- Einde featured brands section -->
+<!--  -->
+<!--  -->
 
-        <section class="how-it-works" id="how-it-works-section">
-            <h2 class="how-it-works-header">How It Works</h2>
-            <div class="step">
-                <div class="step-icon"><img src="../static/designs/pict1.png" alt="step 1" class="step-icon" data-brand="step1"></div>
-                <h3 class="step-title">Choose Your Brands</h3>
-                <p class="step-description">Select your favorite brands to personalize your experience.</p>
-            </div>
-            <div class="step">
-                <div class="step-icon"><img src="../static/designs/pict2.png" alt="step 1" class="step-icon" data-brand="step2"></div>
-                <h3 class="step-title">Subscribe for Alerts</h3>
-                <p class="step-description">Receive discount codes and sale alerts directly in your inbox.</p>
-            </div>
-            <div class="step">
-                <div class="step-icon"><img src="../static/designs/pict3.png" alt="step 1" class="step-icon" data-brand="step3"></div>
-                <h3 class="step-title">Shop & Save</h3>
-                <p class="step-description">Enjoy exclusive discounts and never miss a sale from your favorite brands.</p>
-            </div>
-        </section>
 
+
+
+
+
+<!--  -->
+<!--  -->
+<!-- Testimonials section -->
+<!--  -->
+<!--  -->
         <section class="testimonials">
             <h2 class="section-header">Trusted by Thousands</h2>
             <div class="testimonial-slider">
@@ -203,25 +158,36 @@
                     <cite class="user-name">User 3</cite>
                     <div class="rating"></div>
                 </div>
-                <!-- <div class="slider-controls">
-                  <button class="slider-control-buttons left">&lt;</button>
-                  <button class="slider-control-buttons right">&gt;</button>
-              </div> -->
             </div>
-            
-
                 <!-- Add more testimonials -->
-
             </section>
+<!--  -->
+<!--  -->
+<!-- Einde Testimonials -->
+<!--  -->
+<!--  -->
 
+<!--  -->
+<!--  -->
 <!-- Call-to-Action Section -->
+<!--  -->
+<!--  -->
 <section class="cta-section">
     <h2 class="headline">Start taking control of your inbox</h2>
     <p class="subheadline">Try it now and only receive the content you want!</p>
     <button class="cta-button">Try it now</button>
 </section>
+<!--  -->
+<!--  -->
+<!-- Einde Call-to-Action -->
+<!--  -->
+<!--  -->
 
+<!--  -->
+<!--  -->
 <!-- Footer -->
+<!--  -->
+<!--  -->
 <footer class="footer">
     <div class="footer-logo">
         <img src="..\static\designs\whistleiconv2.png" alt="Your Web App Logo" class="footer-logo-img">
@@ -239,6 +205,12 @@
         <a href="#" class="social-icon"><img src="../static/designs/instagram.png" alt="Instagram"></a>
     </div>
 </footer>
+<!--  -->
+<!--  -->
+<!-- Einde Footer -->
+<!--  -->
+<!--  -->
+
 <!-- Add the following scripts at the end of the body tag -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="../static/temp.js"></script>

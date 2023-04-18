@@ -16,7 +16,7 @@ import sys
 import dj_database_url
 from dotenv import load_dotenv
 from django.core.management.utils import get_random_secret_key
-from saleapp.scraper import scraping_targets
+from saleapp.run_scrapers import scraping_targets
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()
 
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -160,7 +160,7 @@ CELERY_BEAT_SCHEDULE = {
 for index, target in enumerate(scraping_targets):
     CELERY_BEAT_SCHEDULE[f'scrape_task_{index}'] = {
         'task': 'saleapp.tasks.scrape_task',
-        'schedule': 60 * 60,  # Run the task every 1 hour
+        'schedule': 60,  # Run the task every 1 hour
         'args': (target['url'], target['tag'], target['attribute'], target['value']),
     }
 
@@ -175,3 +175,12 @@ EMAIL_HOST_USER = 'salealert.business@gmail.com'
 EMAIL_HOST_PASSWORD = 'fbrkgbuxgkguwhua'
 
 
+# Scrapy settings
+BOT_NAME = 'salescraper'
+
+SPIDER_MODULES = ['salesite.scrapy_project.spiders']
+NEWSPIDER_MODULE = 'salesite.scrapy_project.spiders'
+
+ROBOTSTXT_OBEY = True
+SPIDER_MODULES = ['saleapp.spiders']
+NEWSPIDER_MODULE = 'saleapp.spiders'

@@ -100,7 +100,8 @@
               <!-- This attribute will be used in JavaScript for selecting brands -->
               {% for brand in allbrands %}
               <div class="brand-container">
-                <img class="brand-logo" src="{{ brand.logo.url }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}">
+                <!-- LET OP: hier tijdelijk static voorgezet zodat het werkt met digital ocean, maar weetniet of het nu nog werkt als je dingen toevoegd via de django admin -->
+                <img class="brand-logo" src="static{{ brand.logo.url }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}"> 
                 <div class="brand-overlay"></div>
               </div>
               {% endfor %} 

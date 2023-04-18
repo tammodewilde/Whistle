@@ -17,16 +17,14 @@ from django.core.mail import send_mail
 
 
 def index(request):
-    allbrands = Brand.objects.all()
-    allbrands = Brand.objects.order_by('id') #volgorde wijzigen waarmee brands displayed worden
+    allbrands = Brand.objects.order_by('id') # Fetch all brands and order by 'id'
     paginator = Paginator(allbrands, 16)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    variabelen = {"allbrands":page_obj}     
+    brand_logos = [{'name': brand.name, 'logo_data': brand.logo_data} for brand in allbrands]
+    variabelen = {'page_obj': page_obj, 'brand_logos': brand_logos}
     
     if request.method == "GET":                      
-
-        
         # return render(request, 'sales1.html', variabelen)
         return render(request, 'temp.html', variabelen)
 

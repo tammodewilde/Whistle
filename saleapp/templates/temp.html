@@ -94,17 +94,25 @@
               <input type="text" class="search-input" placeholder="Search for your favourite brand...." onfocus="this.placeholder = ''" onblur="if (this.value == '') { this.placeholder = 'Search for your favourite brand....'; }">
             </div>
 
-            <!-- Brand logos -->
-            <div class="brand-logos">
-              <!-- Add 'data-brand' attribute for each logo with the brand name -->
-              <!-- This attribute will be used in JavaScript for selecting brands -->
-              {% for brand in allbrands %}
-              <div class="brand-container">
-                <!-- LET OP: hier tijdelijk static voorgezet zodat het werkt met digital ocean, maar weetniet of het nu nog werkt als je dingen toevoegd via de django admin -->
-                <img class="brand-logo" src="static{{ brand.logo.url }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}"> 
-                <div class="brand-overlay"></div>
-              </div>
-              {% endfor %} 
+          <!-- Brand logos -->
+          <div class="brand-logos">
+            <!-- Add 'data-brand' attribute for each logo with the brand name -->
+            <!-- {% for brand in allbrands %}
+            <div class="brand-container">
+              <img class="brand-logo" src="data:image/svg+xml;base64,{{ brand.logo_data|safe }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}">
+              <div class="brand-overlay"></div>
+            </div>
+            {% endfor %} -->
+              {% for brand in brand_logos %}
+                <div class="brand-container">
+                    <img class="brand-logo" src="data:image/svg+xml;base64,{{ brand.logo_data }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}"> 
+                    <div class="brand-overlay"></div>
+                </div>
+              {% endfor %}
+            </div>
+
+          
+
 
             </div>
             <!-- subscribe gedeelte -->

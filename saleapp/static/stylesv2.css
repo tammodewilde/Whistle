@@ -254,7 +254,7 @@ main {
     padding: 4rem 8rem;
     text-align: center;
     background-color: #f6f6f6;
-    width: 80vw;
+    width: 70vw;
   }
   
   .featured-brands-header {
@@ -308,7 +308,7 @@ main {
   }
   
   .brand-container.selected .brand-overlay {
-    background-color: rgba(0, 150, 0, 0.4);
+    background-color: rgb(108 108 108 / 40%);
     opacity: 1;
   }
   
@@ -363,8 +363,8 @@ main {
     border-radius: 50px;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    max-width: 500px;
-    margin-left: 150px;
+    width: 75%;
+    margin-left: 12.5%;
   }
 
   .email-input:focus {

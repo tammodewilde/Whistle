@@ -5,9 +5,14 @@ import yaml
 import requests
 import openai
 from celery import shared_task
-from .scraper import scrape_website
-from bs4 import BeautifulSoup
-
+from scrapy.crawler import CrawlerRunner
+from twisted.internet import defer, reactor
+from salescraper.spiders.brand_spider import BrandSpider 
+from scrapy.utils.project import get_project_settings
+from scrapy.settings import Settings
+from salescraper import settings as scrapy_settings
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 #potentiele errors omdat ik emails.py naar tasks.py heb veranderd
 
@@ -46,47 +51,44 @@ def getmail():
         typ, data = my_mail.fetch(num, '(RFC822)') #RFC822 returns whole message (BODY fetches just body)
         msgs.append(data)
 
-    #Now we have all messages, but with a lot of details
-    #Let us extract the right text and print on the screen
-
-    #In a multipart e-mail, email.message.Message.get_payload() returns a 
-    # list with one item for each part. The easiest way is to walk the message 
-    # and get the payload on each part:
-    # https://stackoverflow.com/questions/1463074/how-can-i-get-an-email-messages-text-content-using-python
-
-    # NOTE that a Message object consists of headers and payloads.
     for msg in msgs[::-1]:
         for response_part in msg:
             if type(response_part) is tuple:
                 my_msg=email.message_from_bytes((response_part[1]))
-                print("_________________________________________")
-                print ("subj:", my_msg['subject'])
-                print ("from:", my_msg['from'])
-                print ("body:")
+                # print("_________________________________________")
+                # print ("subj:", my_msg['subject'])
+                # print ("from:", my_msg['from'])
+                # print ("body:")
                 for part in my_msg.walk():  
                     #print(part.get_content_type())
                     if part.get_content_type() == 'text/plain':
-                        print(part.get_payload())
+                        # print(part.get_payload())
                         return part.get_payload()
     return 0
 
 
-#webscraper
-# @shared_task
-# def scrape_task(url, tag, attribute, value):
-#     elements = scrape_website(url, tag, attribute, value)
-#     # Process the extracted elements (e.g., save them to a database)
-#     print(elements)
-#     return len(elements)
+
+#scraper
+
+
+def start_crawl(url, tag, attribute, value):
+    runner = CrawlerRunner(get_project_settings())
+    spider = BrandSpider  # Pass the spider class, not an instance
+
+    # Update the settings with the custom arguments for the spider
+    spider.custom_settings = {
+        'start_urls': [url],
+        'scraping_tag': tag,
+        'scraping_attribute': attribute,
+        'scraping_value': value,
+    }
+
+    crawl_deferred = runner.crawl(spider)
+    return {'result': 'success'}  # or {'result': 'failure'}, based on your logic
+
 @shared_task
 def scrape_task(url, tag, attribute, value):
-    response = requests.get(url)
-    print(response.content)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    elements = soup.find_all(tag, {attribute: value})
-    for element in elements:
-        print(element)
-    return len(elements)
-
-
+    # Start the crawl using the start_crawl function
+    sale_found = start_crawl(url, tag, attribute, value)
+    return sale_found
 

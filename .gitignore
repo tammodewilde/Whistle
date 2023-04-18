@@ -4,4 +4,4 @@ redis-7.0.9
 .env
 db.sqlite3
 *.pyc
-salescraper
+

@@ -1,3 +1,6 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,20 +99,18 @@
 
           <!-- Brand logos -->
           <div class="brand-logos">
-            <!-- Add 'data-brand' attribute for each logo with the brand name -->
-            <!-- {% for brand in allbrands %}
+
+            {% for brand in brand_logos %}
             <div class="brand-container">
-              <img class="brand-logo" src="data:image/svg+xml;base64,{{ brand.logo_data|safe }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}">
+              {% if brand.logo %}
+                <img class="brand-logo" src="{{ brand.logo.url }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}"> 
+              {% else %}
+                <!-- Add fallback image or text here -->
+                <p>No logo available</p>
+              {% endif %}
               <div class="brand-overlay"></div>
             </div>
-            {% endfor %} -->
-              {% for brand in brand_logos %}
-                <div class="brand-container">
-                    <img class="brand-logo" src="{{ brand.logo.url }}" alt="{{ brand.name }}" data-brand="{{ brand.name }}"> 
-                    <div class="brand-overlay"></div>
-                </div>
-              {% endfor %}
-            </div>
+            {% endfor %}
 
           
 

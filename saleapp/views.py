@@ -21,7 +21,7 @@ def index(request):
     paginator = Paginator(allbrands, 16)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    brand_logos = [{'name': brand.name, 'logo_data': brand.logo_data} for brand in allbrands]
+    brand_logos = [{'name': brand.name, 'logo': brand.logo} for brand in allbrands]
     variabelen = {'page_obj': page_obj, 'brand_logos': brand_logos}
     
     if request.method == "GET":                      

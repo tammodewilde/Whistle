@@ -16,13 +16,13 @@ class Category(models.Model):
 
 class Brand(models.Model):
     name = models.CharField(max_length=255)
-    logo_data = models.TextField(blank=True, null=True)  # Replacing the FileField with a TextField
+    logo = models.FileField(upload_to='brand_logos/', blank=True, null=True)  # Use FileField instead of TextField
     sale = models.BooleanField(default=False)
     categories = models.ManyToManyField(Category)
 
     def logo_tag(self):
-        if self.logo_data:
-            return mark_safe(f'<img src="data:image/svg+xml;base64,{self.logo_data}" style="max-width: 100px; max-height: 100px;" />')
+        if self.logo:
+            return mark_safe(f'<img src="{self.logo.url}" style="max-width: 100px; max-height: 100px;" />')
         return None
     logo_tag.short_description = 'Logo Preview'
     logo_tag.allow_tags = True
